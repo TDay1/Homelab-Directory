@@ -1,0 +1,16 @@
+<div id="<%- appCount %>" class="card border-primary bg-light border-0 text-success">
+    <img src="<%- homelabApps.imgURL %>" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><%- homelabApps.appName %></h5>
+        <p class="card-text"><%- homelabApps.appDesc %></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+        <div class="card-body" style="padding-left: 0rem;">
+            <a href="<%- homelabApps.appURL -%>" target="_blank" type="button" class="btn btn-outline-primary"
+                style="margin-right: 1rem;">Go</a>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#optionsModal" data-app="<%- encodeURI(JSON.stringify(homelabApps)) -%>">Options</button>
+            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#optionsModal" data-whatever="<%-//JSON.stringify(homelab) -%>">Open modal for @mdo</button>-->
+
+        </div>
+    </div>
+</div>

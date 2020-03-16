@@ -1,0 +1,6 @@
+static/img/
+data.json
+*.log
+node_modules/
+tmp/
+temp/

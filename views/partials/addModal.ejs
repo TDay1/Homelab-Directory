@@ -1,0 +1,82 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="addmodal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new app to portal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="addAppForm">
+                    <div class="form-group">
+                        <label for="AppNameInput">App Name:</label>
+                        <input type="text" class="form-control" id="AppNameInput" aria-describedby="AppNameInput"
+                            placeholder="Enter App Name">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="appDescInput">Enter app description:</label>
+                        <textarea class="form-control" id="appDescInput" rows="2"></textarea>
+                        <small id="descriptionNotice" class="form-text text-muted">The desription is optional, albeit
+                            reccomended.</small>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="AppURLInput">App URL:</label>
+                        <input type="text" class="form-control" id="AppURLInput" aria-describedby="AppURLInput"
+                            placeholder="Enter App URL">
+                    </div>
+
+                    <div class="form-group">
+                        <label id="chooseImgButtonsLabel" for="chooseImgButtons" class="">Do you wish to use a custom
+                            thumbnail image for this app? : <br></label>
+
+
+
+                        <div class="btn-group" role="group" aria-label="chooseImgButtons">
+                            <button id="customAppIMGButton" type="button" class="btn btn-primary active"
+                                onclick="buttonSwitch('CustomIMG')">Custom app image</button>
+                            <button id="defaultIMGButton" type="button" class="btn btn-primary"
+                                onclick="buttonSwitch('DefaultIMG')">Default image</button>
+                        </div>
+                        <small id="descriptionNotice" class="form-text text-muted">A custom thumbnail image for the app
+                            is reccomended but not required.</small>
+
+                    </div>
+
+
+                    <!--<div class="form-group">
+                        <label id="uploadAppImageLabel" for="uploadAppImage" class="">Upload custom App image:</label>
+                        <input type="file" class="form-control-file" id="uploadAppImage">
+                    </div>-->
+
+                    <input type="file" name="image" id="image" onchange="readURL(this);" />
+                    <div class="image_container" id="cropper_container">
+                        <img id="img_area" src="#" alt="your image" />
+                    </div>
+                    <div id="cropped_result"></div>
+                    <!-- <button type="button" id="crop_button">Crop</button>-->
+
+                </form>
+
+
+
+<!--onclick="getNewAppDataFromForm()"-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    onclick="resetCropper()">Close</button>
+                <button type="button" class="btn btn-primary" id="crop_button" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>

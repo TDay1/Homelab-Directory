@@ -1,0 +1,16 @@
+{
+    "name": "node-ejs",
+    "main": "server.js",
+    "dependencies": {
+        "ejs": "^2.7.1",
+        "express": "^4.17.1"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "nodemonConfig": {
+        "ignore": ["static/img/*", "data.json"],
+        "delay": "1000"
+    }
+}

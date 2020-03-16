@@ -1,0 +1,106 @@
+<!-- views/pages/index.ejs -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- import css -->
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./static/styles/style.css">
+
+    <!-- import cropper js+css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"></script>
+
+
+    <title><%- labName -%></title>
+
+</head>
+
+<body class="bg-dark">
+
+    <%- include('../partials/navbar.ejs', {labName: labName}) -%>
+
+    <div class="container pt-5">
+
+        <% if(homelabApps.length == 0){ %>
+        <%- include('../partials/noAppsWarning.ejs') -%>
+        <% } %>
+        <div class="card-deck mt-5">
+
+            <% appCount=0 %>
+
+            <% homelabApps.forEach(function(homelabApps) { %>
+
+            <% if((appCount % 3 == 0) && (appCount !=0)){ %>
+        </div>
+        <div class="card-deck mt-5">
+            <% } %>
+
+            <% appCount++ %>
+            <%- include('../partials/card.ejs', {homelabApps: homelabApps, appCount: appCount}); %>
+            <% }); %>
+
+            <% if(appCount % 3 != 0){ %>
+            <% while(appCount % 3 !=0){ %>
+
+            <% include ../partials/cardplaceholder.ejs %>
+
+            <% appCount++ %>
+
+            <% } %>
+        </div>
+        <% } %>
+
+
+        <!-- add app modal-->
+        <% include ../partials/addModal.ejs %>
+        <!-- add app options modal-->
+        <% include ../partials/optionsModal.ejs %>
+
+    </div>
+
+    <div class="fixed-bottom" style="margin: 2.5vh">
+        <div id="addAppToast" class=" toast" data-autohide="false" style="position: absolute; bottom: 0; right: 0;">
+            <div class="toast-header">
+                <strong class="mr-auto">You added an app!</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="toast-body">
+                In order to see your new app, please refresh the page!
+            </div>
+        </div>
+    </div>
+
+
+    <div class="fixed-bottom" style="margin: 2.5vh">
+
+        <div id="deleteAppToast" class="toast" data-autohide="false" style="position: absolute; bottom: 0; right: 0;">
+            <div class="toast-header">
+                <strong class="mr-auto">You deleted an app!</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="toast-body">
+                In order to see the changes, please refresh the page!
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <% include ../partials/footer.ejs %>
+
+</body>
+
+</html>
